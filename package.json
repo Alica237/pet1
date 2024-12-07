@@ -2,8 +2,8 @@
   "name": "sci-fi-quest",
   "version": "1.0.0",
   "scripts": {
-    "backend": "cd backend && PYTHONPATH=/home/alica/pet1 python3 -m uvicorn main:app --reload",
-    "frontend": "cd frontend && npm run dev",
+    "backend": "cd backend && PYTHONPATH=/home/alica/pet1 python3 -m uvicorn main:app --reload --host 0.0.0.0",
+    "frontend": "cd frontend && npm run dev -- --host",
     "dev": "concurrently \"npm run backend\" \"npm run frontend\""
   },
   "devDependencies": {

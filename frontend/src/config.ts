@@ -1,1 +1,2 @@
-export const API_URL = 'http://127.0.0.1:8000';
+// Используем реальный IP вашего компьютера
+export const API_URL = 'http://192.168.237.139:8000';
