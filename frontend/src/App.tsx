@@ -78,12 +78,15 @@ const App: React.FC = () => {
     <Container>
       <Box sx={{ my: 4 }}>
         <Typography variant="h4" component="h1" gutterBottom align="center">
-          Путешествие Героя
+          Научная Экспедиция: Kepler-442b
         </Typography>
         
         <Box sx={{ display: 'flex', gap: 2, my: 3 }}>
           <Typography variant="h6">
             Здоровье: {gameState.health}
+          </Typography>
+          <Typography variant="h6" sx={{ ml: 4 }}>
+            Очки науки: {gameState.science_points}
           </Typography>
         </Box>
 
@@ -92,13 +95,15 @@ const App: React.FC = () => {
             <Scene 
               scene={gameState.current_scene} 
               onChoice={handleChoice}
+              disabled={loading}
             />
           </Box>
           
           <Box sx={{ width: 300 }}>
             <Inventory 
-              items={gameState.inventory.map(item => item.name)}
+              items={gameState.inventory}
               onUseItem={handleUseItem}
+              disabled={loading}
             />
           </Box>
         </Box>

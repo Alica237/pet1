@@ -3,28 +3,33 @@ export interface Item {
   name: string;
   description: string;
   usable: boolean;
-  effect: {
+  effect?: {
     type: string;
-    value: number | null;
+    value: number;
+  };
+}
+
+export interface Choice {
+  text: string;
+  next_scene: string;
+  effects: {
+    health?: number;
+    science_points?: number;
+    items?: string[];
   };
 }
 
 export interface Scene {
   id: string;
   description: string;
-  choices: Array<{
-    text: string;
-    next_scene: string;
-    effects: {
-      health?: number;
-      items?: string[];
-    };
-  }>;
+  choices: Choice[];
 }
 
 export interface GameState {
   health: number;
+  science_points: number;
   inventory: Item[];
   current_scene: Scene;
   game_over: boolean;
+  ending?: string;
 }
